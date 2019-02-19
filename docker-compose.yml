@@ -4,7 +4,7 @@ services:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: root
-      # MYSQL_DATABASE: djdocker
+      MYSQL_DATABASE: ddm
       # MYSQL_USER: root
       # MYSQL_PASSWORD: root
     ports:
@@ -14,7 +14,7 @@ services:
   app:
     build: .
     volumes:
-      - .:/app
+      - ./src:/app
     ports:
       - 80:80
     depends_on:

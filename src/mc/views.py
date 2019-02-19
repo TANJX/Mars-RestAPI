@@ -8,11 +8,10 @@ def info(req):
     if req.method == "GET":
         get = req.GET
         if 'server' not in get:
-            response['error'] = 'Missing url variable'
+            response['error'] = 'Missing server variable'
         else:
             result = StatusPing(get['server']).get_status()
             return HttpResponse(json.dumps(result))
     else:
-        response['status'] = 'error'
-        response['msg'] = 'Not a GET request'
+        response['error'] = 'Not a GET request'
     return HttpResponse(json.dumps(response))
